@@ -12,7 +12,7 @@ pytube = "^15.0.0"
 langchain = "^0.3.3"
 langchain-community = "^0.3.2"
 ipfshttpclient = "^0.7.0"
-payments-py = "^0.4.3"
+payments-py = "^0.4.4"
 langchain-openai = "^0.2.0"
 
 [tool.poetry.scripts]

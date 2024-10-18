@@ -38,4 +38,4 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY youtube_agent ./youtube_agent
 
-ENTRYPOINT ["python", "-m", "youtube_agent.main"]
+ENTRYPOINT ["python", "-c", "from youtube_agent import start; start()"]
