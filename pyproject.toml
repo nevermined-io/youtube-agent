@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "youtube-agent"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+youtube-transcript-api = "^0.6.2"
+pytube = "^15.0.0"
+langchain = "^0.3.3"
+langchain-community = "^0.3.2"
+ipfshttpclient = "^0.7.0"
+payments-py = "^0.4.3"
+langchain-openai = "^0.2.0"
+
+[tool.poetry.scripts]
+start = "youtube_agent:start"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
