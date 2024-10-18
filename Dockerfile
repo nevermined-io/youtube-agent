@@ -1,6 +1,5 @@
 FROM python:3.11-alpine as base
 
-ARG DEV=false
 ENV VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
 
@@ -23,13 +22,9 @@ WORKDIR /app
 # Install Poetry
 RUN pip install poetry==1.8.2
 
-# Install the app
+# Install the app dependencies
 COPY pyproject.toml poetry.lock ./
-RUN if [ $DEV ]; then \
-      poetry install --with dev --no-root && rm -rf $POETRY_CACHE_DIR; \
-    else \
-      poetry install --no-root && rm -rf $POETRY_CACHE_DIR; \
-    fi
+RUN poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
 
 FROM base as runtime
