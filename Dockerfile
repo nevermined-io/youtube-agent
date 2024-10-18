@@ -21,7 +21,7 @@ RUN apk update && \
 WORKDIR /app
 
 # Install Poetry
-RUN pip install poetry==1.6.1
+RUN pip install poetry==1.8.2
 
 # Install the app
 COPY pyproject.toml poetry.lock ./
