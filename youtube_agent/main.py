@@ -9,7 +9,8 @@ from payments_py.data_models import AgentExecutionStatus
 from langchain.chains.summarize import load_summarize_chain
 
 nvm_api_key = os.getenv('NVM_API_KEY')
-os.environ["OPENAI_API_KEY"] = "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"
+openai_api_key = os.getenv('OPENAI_API_KEY')
+environment = os.getenv('ENVIRONMENT')
 
 
 class YoutubeAgent:
@@ -32,7 +33,7 @@ class YoutubeAgent:
         docs = loader.load()
         result = " ".join(doc.page_content for doc in docs)
 
-        llm = OpenAI(api_key='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')
+        llm = OpenAI(api_key=openai_api_key)
         summarize_chain = load_summarize_chain(llm, chain_type="map_reduce")
         docs = [Document(page_content=result)]
         summary = summarize_chain.invoke(docs)

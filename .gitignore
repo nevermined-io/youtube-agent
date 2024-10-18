@@ -1,3 +1,5 @@
 .dist
 .__pycache__
 .pytest_cache
+.env
+youtube_agent/__pycache__
