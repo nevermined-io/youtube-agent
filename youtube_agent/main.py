@@ -32,6 +32,7 @@ class YoutubeAgent:
         # Load the documents from the video
         docs = loader.load()
         result = " ".join(doc.page_content for doc in docs)
+        print('Result:', result)
 
         llm = OpenAI(api_key=openai_api_key)
         summarize_chain = load_summarize_chain(llm, chain_type="map_reduce")
@@ -59,7 +60,7 @@ async def main():
         app_id="youtube_agent", 
         nvm_api_key=nvm_api_key, 
         version="1.0.0", 
-        environment=Environment.appStaging, 
+        environment=Environment.get_environment(environment), 
         ai_protocol=True, 
         web_socket_options={'bearer_token': nvm_api_key}
     )
