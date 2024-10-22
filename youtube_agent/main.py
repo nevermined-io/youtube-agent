@@ -21,7 +21,6 @@ class YoutubeAgent:
         print("Data received:", data)
         step = self.payment.ai_protocol.get_step(data['step_id'])
 
-
         loader = YoutubeLoader.from_youtube_url(
             youtube_url=step['input_query'],
             add_video_info=False, 
@@ -32,7 +31,6 @@ class YoutubeAgent:
         # Load the documents from the video
         docs = loader.load()
         result = " ".join(doc.page_content for doc in docs)
-        print('Result:', result)
 
         llm = OpenAI(api_key=openai_api_key)
         summarize_chain = load_summarize_chain(llm, chain_type="map_reduce")
