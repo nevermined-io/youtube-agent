@@ -11,6 +11,7 @@ from langchain.chains.summarize import load_summarize_chain
 nvm_api_key = os.getenv('NVM_API_KEY')
 openai_api_key = os.getenv('OPENAI_API_KEY')
 environment = os.getenv('ENVIRONMENT')
+did = os.getenv('DID')
 
 
 class YoutubeAgent:
@@ -20,6 +21,9 @@ class YoutubeAgent:
     async def run(self, data):
         print("Data received:", data)
         step = self.payment.ai_protocol.get_step(data['step_id'])
+        if(step['step_status'] != AgentExecutionStatus.Pending.value):
+            print('Step status is not pending')
+            return
 
         loader = YoutubeLoader.from_youtube_url(
             youtube_url=step['input_query'],
@@ -67,7 +71,9 @@ async def main():
     agent = YoutubeAgent(payment)
 
     # Subscribe to the ai_protocol with the agent's `run` method
-    subscription_task = asyncio.get_event_loop().create_task(payment.ai_protocol.subscribe(agent.run, join_account_room=True))
+    subscription_task = asyncio.get_event_loop().create_task(payment.ai_protocol.subscribe(agent.run, join_account_room=False, join_agent_rooms=[did], get_pending_events_on_subscribe=False))
+    print('Subscribing to did:', did)
+
     try:
         await subscription_task
     except asyncio.CancelledError:
