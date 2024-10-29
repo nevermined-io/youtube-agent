@@ -10,8 +10,8 @@ from langchain.chains.summarize import load_summarize_chain
 
 nvm_api_key = os.getenv('NVM_API_KEY')
 openai_api_key = os.getenv('OPENAI_API_KEY')
-environment = os.getenv('ENVIRONMENT')
-did = os.getenv('DID')
+environment = os.getenv('NVM_ENVIRONMENT')
+agent_did = os.getenv('AGENT_DID')
 
 
 class YoutubeAgent:
@@ -71,8 +71,8 @@ async def main():
     agent = YoutubeAgent(payment)
 
     # Subscribe to the ai_protocol with the agent's `run` method
-    subscription_task = asyncio.get_event_loop().create_task(payment.ai_protocol.subscribe(agent.run, join_account_room=False, join_agent_rooms=[did], get_pending_events_on_subscribe=False))
-    print('Subscribing to did:', did)
+    subscription_task = asyncio.get_event_loop().create_task(payment.ai_protocol.subscribe(agent.run, join_account_room=False, join_agent_rooms=[agent_did], get_pending_events_on_subscribe=True))
+    print('Subscribing to did:', agent_did)
 
     try:
         await subscription_task
