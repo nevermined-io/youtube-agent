@@ -113,7 +113,6 @@ async def two_steps_main():
         version="1.0.0", 
         environment=Environment.get_environment(environment), 
         ai_protocol=True, 
-        web_socket_options={'bearer_token': nvm_api_key}
     )
 
     # Initialize the YoutubeAgent with the payment instance

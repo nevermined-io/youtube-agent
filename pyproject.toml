@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "youtube-agent"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
@@ -12,7 +12,7 @@ pytube = "^15.0.0"
 langchain = "^0.3.3"
 langchain-community = "^0.3.2"
 ipfshttpclient = "^0.7.0"
-payments-py = "^0.4.9"
+payments-py = "^0.5.0"
 langchain-openai = "^0.2.0"
 
 [tool.poetry.scripts]

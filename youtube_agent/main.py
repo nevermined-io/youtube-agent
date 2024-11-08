@@ -64,14 +64,13 @@ async def main():
         version="1.0.0", 
         environment=Environment.get_environment(environment), 
         ai_protocol=True, 
-        web_socket_options={'bearer_token': nvm_api_key}
     )
 
     # Initialize the YoutubeAgent with the payment instance
     agent = YoutubeAgent(payment)
 
     # Subscribe to the ai_protocol with the agent's `run` method
-    subscription_task = asyncio.get_event_loop().create_task(payment.ai_protocol.subscribe(agent.run, join_account_room=False, join_agent_rooms=[agent_did], get_pending_events_on_subscribe=True))
+    subscription_task = asyncio.get_event_loop().create_task(payment.ai_protocol.subscribe(agent.run, join_account_room=False, join_agent_rooms=[agent_did], get_pending_events_on_subscribe=False))
     print('Subscribing to did:', agent_did)
 
     try:
