@@ -1513,13 +1513,13 @@ files = [
 
 [[package]]
 name = "payments-py"
-version = "0.5.0"
+version = "0.5.1"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "payments_py-0.5.0-py3-none-any.whl", hash = "sha256:dd555b27ff9224e5cbbecfa4e8eba15aa23a159d083431a01c487fc5e611da23"},
-    {file = "payments_py-0.5.0.tar.gz", hash = "sha256:1b26dc21a7db49ce235eef196fd63d16094ae10b0ce7003aee51f2a76842c69e"},
+    {file = "payments_py-0.5.1-py3-none-any.whl", hash = "sha256:72e984efcf24356c8f15fb0ea18ddb767c0c96ebd67f570614b6bf37bb113634"},
+    {file = "payments_py-0.5.1.tar.gz", hash = "sha256:edfd8df53a05474cf8db11eeaf0aca9e69c664dc8aedce9bb2ddd19b9e4a354d"},
 ]
 
 [package.dependencies]
@@ -2706,4 +2706,4 @@ requests = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f00a6d47b90a524cdd81063d430dae8b272687d180d86dbc92abaa1eff7f40a6"
+content-hash = "2e9dcaa02edf9311b3b0eeeda472504be8bedde4cd48d781ad568b15cd2dd4cb"

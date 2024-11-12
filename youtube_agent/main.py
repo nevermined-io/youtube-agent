@@ -5,7 +5,7 @@ from langchain_community.document_loaders import YoutubeLoader
 from langchain_community.document_loaders.youtube import TranscriptFormat
 from langchain_openai import OpenAI
 from payments_py import Environment, Payments
-from payments_py.data_models import AgentExecutionStatus
+from payments_py.data_models import AgentExecutionStatus, TaskLog
 from langchain.chains.summarize import load_summarize_chain
 
 nvm_api_key = os.getenv('NVM_API_KEY')
@@ -25,6 +25,7 @@ class YoutubeAgent:
             print('Step status is not pending')
             return
 
+        await self.payment.ai_protocol.log_task(TaskLog(task_id=step['task_id'], message='Fetching steps...', level='info'))
         loader = YoutubeLoader.from_youtube_url(
             youtube_url=step['input_query'],
             add_video_info=False, 
@@ -33,14 +34,18 @@ class YoutubeAgent:
             chunk_size_seconds=30,
         )
         # Load the documents from the video
+        await self.payment.ai_protocol.log_task(TaskLog(task_id=step['task_id'], message='Load the documents from the video', level='info'))
         docs = loader.load()
         result = " ".join(doc.page_content for doc in docs)
+        
 
         llm = OpenAI(api_key=openai_api_key)
+        await self.payment.ai_protocol.log_task(TaskLog(task_id=step['task_id'], message='Summarizing...', level='info'))
         summarize_chain = load_summarize_chain(llm, chain_type="map_reduce")
         docs = [Document(page_content=result)]
         summary = summarize_chain.invoke(docs)
         print('Summary:', summary['output_text'])
+        await self.payment.ai_protocol.log_task(TaskLog(task_id=step['task_id'], message='Summary ready.', level='info'))
 
 
         # Use the `payment` object to update the step
