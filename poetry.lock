@@ -478,19 +478,6 @@ marshmallow = ">=3.18.0,<4.0.0"
 typing-inspect = ">=0.4.0,<1"
 
 [[package]]
-name = "defusedxml"
-version = "0.7.1"
-description = "XML bomb protection for Python stdlib modules"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-groups = ["main"]
-markers = "python_full_version < \"3.12.4\""
-files = [
-    {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
-    {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
-]
-
-[[package]]
 name = "distro"
 version = "1.9.0"
 description = "Distro - an OS platform information API"
@@ -842,14 +829,14 @@ requests = ">=2.11"
 
 [[package]]
 name = "jinja2"
-version = "3.1.5"
+version = "3.1.6"
 description = "A very fast and expressive template engine."
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
 files = [
-    {file = "jinja2-3.1.5-py3-none-any.whl", hash = "sha256:aba0f4dc9ed8013c424088f68a5c226f7d6097ed89b246d7749c2ec4175c6adb"},
-    {file = "jinja2-3.1.5.tar.gz", hash = "sha256:8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"},
+    {file = "jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"},
+    {file = "jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"},
 ]
 
 [package.dependencies]
@@ -3069,30 +3056,12 @@ description = "This is an python API which allows you to get the transcripts/sub
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "python_full_version >= \"3.12.4\""
 files = [
     {file = "youtube_transcript_api-0.6.2-py3-none-any.whl", hash = "sha256:019dbf265c6a68a0591c513fff25ed5a116ce6525832aefdfb34d4df5567121c"},
     {file = "youtube_transcript_api-0.6.2.tar.gz", hash = "sha256:cad223d7620633cec44f657646bffc8bbc5598bd8e70b1ad2fa8277dec305eb7"},
 ]
 
 [package.dependencies]
-requests = "*"
-
-[[package]]
-name = "youtube-transcript-api"
-version = "0.6.3"
-description = "This is an python API which allows you to get the transcripts/subtitles for a given YouTube video. It also works for automatically generated subtitles, supports translating subtitles and it does not require a headless browser, like other selenium based solutions do!"
-optional = false
-python-versions = "<3.14,>=3.8"
-groups = ["main"]
-markers = "python_full_version < \"3.12.4\""
-files = [
-    {file = "youtube_transcript_api-0.6.3-py3-none-any.whl", hash = "sha256:297a74c1863d9df88f6885229f33a7eda61493d73ecb13ec80e876b65423e9b4"},
-    {file = "youtube_transcript_api-0.6.3.tar.gz", hash = "sha256:4d1f6451ae508390a5279f98519efb45e091bf60d3cca5ea0bb122800ab6a011"},
-]
-
-[package.dependencies]
-defusedxml = ">=0.7.1,<0.8.0"
 requests = "*"
 
 [[package]]
